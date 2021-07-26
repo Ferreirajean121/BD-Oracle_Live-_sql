@@ -1,0 +1,28 @@
+--Nesse exemplo, o operador AND, força a consulta para ser obrigada a atender as duas condições estabelecidas.
+-- Para retornar algum resultado, o salário terá que ser maior que 10000 e o job_id conter a palavra %MAN%.
+
+SELECT employee_id, last_name, job_id, salary FROM hr.employees
+WHERE salary >= 10000 AND job_id LIKE '%MAN%';
+
+--O comando OR, necessita que somente uma das condições seja atendida.
+-- Nesse exemplo, se qualquer uma das condições forem atendidas, os resultados serão exibidos. 
+
+SELECT employee_id, last_name, job_id, salary FROM hr.employees
+WHERE salary >= 10000 OR job_id LIKE'%MAN%';
+
+--Junções com as condições AND, WHERE e OR para filtrarmos os resultados das consultas: 
+
+SELECT employee_id, last_name, job_id, salary FROM hr.employees
+WHERE job_id = 'SA_REP'
+OR job_id = 'AD_PRES'
+AND salary > 15000;
+
+-- Ordenar coluna por ordem crescente
+
+SELECT employee_id, last_name, department_id, hire_date FROM hr.employees
+ORDER BY department_id;
+
+-- Ordenar coluna por ordem decrescente 
+
+SELECT employee_id, last_name, department_id, hire_date FROM hr.employees
+ORDER BY department_id DESC;

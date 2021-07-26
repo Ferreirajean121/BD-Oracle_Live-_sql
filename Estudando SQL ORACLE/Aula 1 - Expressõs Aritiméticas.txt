@@ -1,0 +1,32 @@
+SELECT first_name, salary + 100 FROM hr.employees;
+
+--Multiplica a coluna salary por 12 para obter qual o salario de um ano ja com aumento
+SELECT first_name, 12 * (salary + 100) FROM hr.employees;
+
+--Para exibir todos os registros cujo campo DEPARTMENT_NAME tenha valor igual a ‘Marketing’:
+SELECT * FROM hr.departments
+WHERE department_name='Marketing';
+
+--Para exibir todos os registros da tabela employees, filtrando todos os funcionários com salário menos que $10000:
+--da mesma froma podemos fazer com outras colunas
+SELECT * FROM hr.employees WHERE salary < 10000;
+
+--o BETWEEN para retornar todos os departamentos com código entre 10 e 30:
+SELECT * FROM hr.departments WHERE department_id BETWEEN 10 AND 30;
+
+--utiliza o IN para apresentar todos os departamentos que sejam referentes a Administração e Marketing:
+SELECT * FROM hr.departments WHERE department_name in ('Administration', 'Marketing');
+
+-- o NOT IN permite que se se apresente todos os departamentos, exceto os de Administração e Marketing:
+SELECT * FROM hr.departments WHERE department_name NOT IN ('Administration', 'Marketing');
+
+-- ‘%m’ – Qualquer termo que termine com a letra m (minúscula).
+--‘%a%’ – Qualquer termo que contenha a letra a (minúscula)
+--'a%' mostra qualquer termo que começa com a letra a, exemplo:
+SELECT * FROM hr.departments WHERE department_name like 'A%';
+
+-- O IS NULL permite retornar os todos os registros que contenham a coluna manager_id como nula:
+SELECT * FROM hr.employees WHERE manager_id IS NULL;
+
+--O IS NOT NULL permite retornar somente os registros da coluna manager_id que não sejam nulos. 
+SELECT * FROM hr.employees WHERE manager_id IS NOT NULL;

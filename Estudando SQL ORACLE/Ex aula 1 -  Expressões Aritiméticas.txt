@@ -1,0 +1,18 @@
+--01) Apresentar, da tabela EMPLOYEES, todos os dados dos funcionários que recebam entre $6000 e $9000.
+SELECT * FROM hr.employees WHERE salary BETWEEN 6000 and 9000;
+
+---2) Apresentar, da tabela EMPLOYEES, todos os dados dos funcionários cujo cargo seja FI_ACCOUNT e FI_MGR.
+SELECT * FROM hr.employees WHERE job_id IN ('FI_ACCOUNT', 'FI_MGR');
+
+--03) Apresentar, da tabela EMPLOYEES, todos os dados dos funcionários que recebam abaixo de $4000, aplicando-lhes
+--um aumento de 20%.
+
+
+--04) Apresentar, da tabela DEPARTMENTS, todos os dados dos departamentos cujo nome se inicie com A.
+SELECT * FROM hr.departments WHERE department_name LIKE 'A%';
+
+--05) Apresentar, da tabela DEPARTMENTS, todos os dados dos departamentos cujo nome termine com a letra g.
+SELECT * FROM hr.departments WHERE department_name LIKE '%g';
+
+--06) Apresentar, da tabela DEPARTMENTS, todos os dados dos departamentos cujo nome contenha as letras ‘atio’
+SELECT * FROM hr.departments WHERE department_name LIKE '%atio%';

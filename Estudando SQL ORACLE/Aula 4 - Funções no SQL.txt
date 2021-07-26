@@ -1,0 +1,42 @@
+-- funções (lower, upper, initcap) servem para converter letras maiúsculas em minúsculas e vice-versa.
+
+SELECT upper(first_name), lower(last_name), initcap(job_id), salary FROM hr.employees;
+
+-- As funções também servem para nos auxiliar, no filtro de informações a serem buscadas.
+-- Na query abaixo vamos utilizar a clausula where na coluna LAS_NAME, para busar um funcionário 
+--com o sobrenome 'higgins' (em minúsculo)
+
+SELECT E.employee_id, E.first_name, E.last_name FROM hr.employees E WHERE E.last_name = 'higgins';
+
+-- Não foi encontrada nenhuma linha por motivo de 'Higgins' esta ocasionado com a primeira letra maiuscula.
+-- Por isso podemos forçar a saida de todos os dados utilizando uma das funções aprendidas (lower, upper e initcap).
+
+SELECT E.employee_id, E.first_name, E.last_name FROM hr.employees E WHERE lower(E.last_name) = 'higgins';
+
+-- Manipulação de caracteres
+-- • Os resultados, apresentarão:
+-- • Os campos FIRST_NAME e LAST_NAME concatenados, com o apelido “NOME”;
+-- • O comprimento de caracteres do campo LAST_NAME;
+-- • A posição da letra ‘a’ no campo LAST_NAME;
+-- • Tudo isso, apenas nos registos em que o campo JOB_ID tiver as letras ‘REP’ a partir da quarta posição.
+
+SELECT E.employee_id, concat(first_name, last_name) "NOME", E.job_id, LENGTH(last_name), 
+INSTR(E.last_name, 'a') "Possui A"
+FROM hr.employees E
+WHERE SUBSTR(E.job_id, 4) = 'REP';
+
+-- Funções de numeros
+-- • ROUND: Arredonda a coluna, expressão ou valor para N casas decimais: se N for omitido, não haverá casas decimais. 
+
+SELECT round(45.293,2), round(45.293,0) FROM  dual;
+
+-- • TRUNC: Trunca a coluna, expressão ou o valor para N casas decimais: se N for omitido, assumirá o valor default zero. 
+
+SELECT trunc(45.293,2), trunc(45.293,0) FROM  dual;
+
+-- • MOD (m,n): Retorna o restante de m dividido por n.
+--  será retornado o módulo (resto da divisão inteira) do campo SALARY pelo valor 5000:
+
+SELECT last_name, salary, MOD(salary, 5000)
+FROM hr.employees WHERE job_id = 'SA_REP';
+

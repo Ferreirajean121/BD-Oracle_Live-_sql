@@ -1,0 +1,76 @@
+-- Join
+-- Inner Join - Este tipo de Join deverá ser usado quando o resultado
+-- esperado entre duas ou mais tabelas seja por coincidência, ou
+-- seja, para cada linha da primeira tabela queremos a(s) linha(s)
+-- da segunda tabela correspondente(s). 
+
+-- Padrão tradicional SQL89
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E, hr.departments D WHERE D.department_id = E.department_id AND
+E.employee_id = 200;
+
+-- Padrão ANSI SQL92
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E INNER JOIN hr.departments D ON D.department_id = E.department_id 
+WHERE E.employee_id = 200;
+
+-- Left join - Este tipo de Join deverá ser usado quando o resultado
+-- esperado NÃO seja por coincidência, sendo assim, irá retornar
+-- as linhas da primeira tabela mesmo que não haja
+-- correspondencia na segunda tabela.
+
+-- Padrão tradicional SQL89
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E, hr.departments D WHERE D.department_id(+) = E.department_id AND
+E.employee_id = 200;
+
+-- Padrão ANSI SQL92
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E LEFT JOIN hr.departments D ON D.department_id = E.department_id 
+WHERE E.employee_id = 200;
+
+-- Right Join - Esse Join é onde o resulatado  esperado NÃO seja
+-- por coincidência, mas, neste caso irá retornar as linhas da
+-- segunda tabela mesmo que não haja correspondencia na primeira.
+
+-- Padrão tradicional SQL89
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E, hr.departments D WHERE D.department_id = E.department_id(+) AND
+E.employee_id = 200;
+
+-- Padrão ANSI SQL92
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E RIGHT JOIN hr.departments D ON D.department_id = E.department_id 
+WHERE E.employee_id = 200;
+
+-- Full Join - Neste caso juntamos o INNER JOIN com a listagem de todas
+-- as outras linhas não associadas, tanto do lado direito - RIGHT
+-- JOIN - quanto do lado esquerdo - LEFT JOIN. (não existe implementação FULL JOIN no padrão SQL89)
+-- Exemplo 1
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM (SELECT * FROM hr.employees WHERE  employee_id = 200) E FULL JOIN hr.departments D 
+ON D.department_id = E.department_id;
+
+-- Exemplo 2
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E FULL JOIN hr.departments D 
+ON D.department_id = E.department_id;
+
+-- Cross Join - • Deve ser usado quando for necessario juntar duas ou mais tabelas por cruzamento.
+-- Para cada linha da tabela EMPLOYEES queremos todos os DEPARTMENTS ou vice-versa.
+-- Também pode ser chamado de produto cartesiano entre duas tabelas.
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E, hr.departments D;
+
+-- Padrão ANSI SQL92
+
+SELECT E.employee_id, E.last_name, E.department_id, D.department_id, D.location_id
+FROM hr.employees E CROSS JOIN hr.departments D;

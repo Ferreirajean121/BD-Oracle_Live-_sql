@@ -1,0 +1,48 @@
+-- Criação de tabelas
+
+CREATE TABLE funcionario (
+cd_func   NUMBER  (20),
+nome      VARCHAR (30),
+sobrenome VARCHAR (30),
+salario   NUMBER  (30)
+);
+
+-- • Para conferir se a tabela foi criada corretamente, bem como os detalhe da sua estrutura,
+-- podemos utilizar o comando describe, ou apenas desc.
+
+DESC funcionario;
+
+DESCRIBE funcionario;
+
+-- • inserção dos dados na tabela, pode ser feita, seja de forma explícita ou implícita:
+--Explícita 
+
+INSERT INTO funcionario (cd_func, nome, sobrenome, salario)
+VALUES                  (1,     'Regina', 'Jorge', 4000);
+
+INSERT INTO funcionario (cd_func, nome, sobrenome, salario)
+VALUES                  (2,     'Harry', 'Silva', 5000);
+
+SELECT * FROM funcionario;
+
+-- Constraints
+-- Chave primaria
+CREATE TABLE aluno (
+cd_aluno      NUMBER  (20) primary key,
+nome          VARCHAR (30),
+sobrenome     VARCHAR (30),
+ds_endereco   VARCHAR (30)
+);
+
+SELECT * FROM  aluno;
+
+-- Chave estrangeria
+CREATE TABLE matricula (
+cd_matricula NUMBER  (20) primary key,
+nome_curso   VARCHAR (30),
+cd_aluno     NUMBER (30) REFERENCES aluno (cd_aluno)
+);
+
+-- Drop table - excluir tabelas do banco de dados
+ 
+DROP TABLE funcionario;

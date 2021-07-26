@@ -1,0 +1,23 @@
+-- Selecionar, da tabela Employees, todas as linhas em que o campo salary tenha valor superior ou igual a 5000. 
+
+SELECT employee_id, last_name, job_id, salary FROM hr.employees
+WHERE salary >= 5000;
+
+-- Selecionar, da tabela Employees, todas as linhas em que o campo hire_date esteja entre as datas 
+-- entre 01/01/08 e 01/03/08 – usar obrigatoriamente o conectivo BETWEEN. 
+
+SELECT * FROM hr.employees WHERE hire_date BETWEEN '01-JAN-08' AND '01-MAR-08';
+
+-- Selecionar, da tabela Employees, todas as linhas em que o campo hire_date esteja entre as datas 
+-- entre 01/01/08 e 01/12/08 – não usar o BETWEEN. 
+
+SELECT * FROM hr.employees WHERE (hire_date >= '01-JAN-08') AND (hire_date <= '01-DEC-08');
+
+-- Selecionar da tabela employees todas as linhas em que o campo hire_date esteja entre a data entre 06/02/08 e 08/03/08 
+-- usar os conectivos IN
+select * from hr.employees where hire_date in ('06-FEB-08', '08-MAR-08');
+
+-- Selecionar da tabela employees todas as linhas em que o campo hire_date esteja entre a data entre 06/01/08 e 08/03/08 
+-- nao usar os conectivos IN
+
+select * from hr.employees where (hire_date = '06-FEB-08') or (hire_date = '08-MAR-08');

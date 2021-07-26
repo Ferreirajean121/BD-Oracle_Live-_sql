@@ -1,0 +1,25 @@
+-- O departamento de recursos humanos precisa de um relatorio para exibir o numero do funcionario, o sobrenome, 
+-- o salario e o salario com 15,5% de aumento (especificado como numero iinteiro) de cada funcionario.  Atribua o apelido NOVO_SALARIO para coluna
+
+select EMPLOYEE_ID, LAST_NAME, SALARY, 
+       ROUND(SALARY * 1.15, 0) novo_salario 
+from   hr.employees;
+
+-- Modifique a consulta anterior para adicionar uma coluna que subtraia o salário antigo do novo salário. Atribua o apelido AUMENTO á coluna.
+
+select EMPLOYEE_ID, LAST_NAME, SALARY, 
+       ROUND(SALARY * 1.155, 0) novo_salario,
+       ROUND(salary * 1.555, 0) - salary AUMENTO 
+from   hr.employees;
+
+-- Crie uma consulta que exiba o sobrenome (com a primeira letra maíuscula e todas as outras minúsculas) 
+-- e o tamanho do sobrenome de todos os funcionários cujos nomes comecem com a letra J, A ou M. Atribua um
+-- apelido apropriado a cada coluna. Classique os resultados pelos sobrenomes.
+
+select INITCAP(last_name) Nome,
+       LENGTH(last_name)  Classificação
+       from hr.employees
+where last_name like 'J%'
+or    last_name like 'M%'
+or    last_name like 'A%'
+order by last_name;

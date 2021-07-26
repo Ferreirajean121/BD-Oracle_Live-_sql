@@ -1,0 +1,34 @@
+-- Modificando linhas em tabelas
+
+CREATE TABLE funcionario (
+cd_func   NUMBER  (20),
+nome      VARCHAR (30),
+sobrenome VARCHAR (30),
+salario   NUMBER  (30)
+);
+
+INSERT INTO funcionario (cd_func, nome, sobrenome, salario)
+VALUES                  (1,     'Regina', 'Jorge', 4000);
+
+INSERT INTO funcionario (cd_func, nome, sobrenome, salario)
+VALUES                  (2,     'Harry', 'Silva', 5000);
+
+SELECT * FROM funcionario;
+
+-- Comando update - é utilizado para modificar as linhas existentes nas tabelas do banco de dados. 
+
+UPDATE funcionario SET salario=1000;
+
+-- Para mmodificar um em especifica temos que acrescentar algumas mudanção, exemplo:
+
+UPDATE funcionario SET salario = 2000
+WHERE nome = 'Harry';
+
+-- Comando delete - excluir linhas que não queremos mais
+-- Esse comando podemos utilizar igual o update para não excluir todos os registros
+
+DELETE FROM funcionario WHERE salario = 1000;
+
+-- Para excluir todas as linhas utilizaremos este comando
+
+DELETE FROM funcionario;

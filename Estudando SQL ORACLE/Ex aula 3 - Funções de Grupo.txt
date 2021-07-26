@@ -1,0 +1,24 @@
+-- O departamento de Recursos Humanos exige alguns relatórios de alguns determinados departamentos.
+-- Seguir os requisitos abaixo para buscar os resultados solicitados (tabela employees)
+-- Exibir o menor salário da empresa.
+
+SELECT MIN(salary) FROM hr.employees;
+
+-- Exibir o maior salário da empresa.
+
+SELECT MAX(salary) FROM hr.employees; 
+
+-- Exibir a média salarial da empresa.
+
+SELECT AVG(salary) FROM hr.employees;
+
+-- Exibir a somatória do salario agrupada por cargo
+
+SELECT job_id, MAX(salary) FROM hr.employees GROUP BY job_id;
+
+-- Exibir a média salarial de cada departamento(departmen_id)
+
+SELECT department_id, AVG(salary) FROM hr.employees GROUP BY department_id;
+
+-- Exibir a média salarial dos funcionarios com ID de departamento maior que 80
+SELECT AVG(salary) FROM hr.employees WHERE department_id = 80;

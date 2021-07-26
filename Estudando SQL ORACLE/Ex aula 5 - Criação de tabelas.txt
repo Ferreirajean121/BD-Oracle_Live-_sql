@@ -1,0 +1,121 @@
+-- Ciar tabela funcionarios e Departamentos
+
+CREATE TABLE funcionario (
+cd_func   NUMBER   (20),
+cd_dept   NUMBER   (20),
+nome      VARCHAR  (30),
+sobrenome VARCHAR  (30),
+salario   NUMBER   (30)
+);
+
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (1,       26,    'Regina', 'Jorge', 4000);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (2,        17,    'Harry', 'Silva', 5000);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (3,        48,   'Emilia', 'Stoker', 8000);
+
+INSERT INTO funcionario (cd_func, cd_deptnome, nome,  sobrenome, salario)
+VALUES                  (4,        34,      'Mark', 'Josue', 12000);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (5,        11,   'Maria', 'Fonseca', 3000);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (6,       28,    'Maria', 'Alvez', 6100);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (7,        50,    'Jorge', 'Casey', 5000);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (8,        75,   'Tiago', 'Potter', 4500);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome,  sobrenome, salario)
+VALUES                  (9,        64,      'Lilian', 'Jessica', 2800);
+
+INSERT INTO funcionario (cd_func, cd_dept, nome, sobrenome, salario)
+VALUES                  (10,        14,   'Rogulo', 'Ferreira', 4200);
+
+
+SELECT * FROM funcionario;
+
+CREATE TABLE departamentos (
+cd_dept    NUMBER  (20),
+nome_dept  VARCHAR (30),
+ds_dept    VARCHAR (30)
+
+);
+
+
+INSERT INTO departamentos (cd_dept, nome_dept, ds_dept)
+VALUES                    (011,     'Operacional',    'XX');
+
+INSERT INTO departamentos (cd_dept, nome_dept, ds_dept)
+VALUES                    (034,     'Comercial',    'JJ');
+
+INSERT INTO departamentos (cd_dept, nome_dept, ds_dept)
+VALUES                    (048,     'Recursos Humanos',    'GG');
+
+INSERT INTO departamentos (cd_dept, nome_dept, ds_dept)
+VALUES                    (017,     'Administrativo',    'RR');
+
+INSERT INTO departamentos (cd_dept, nome_dept, ds_dept)
+VALUES                    (026,     'Financeiro',    'SS');
+
+SELECT * FROM departamentos;
+ 
+-- 2) Criar tabela vendedor e cliente
+
+CREATE TABLE vendedor (
+cd_vendedor   NUMBER   (20),
+nm_vendedor   NUMBER   (20),
+ds_endereco   VARCHAR  (30)
+);
+
+
+INSERT INTO vendedor (cd_vendedor, nm_vendedor, ds_endereco)
+VALUES               (1,            26,         'SS'       );
+
+INSERT INTO vendedor (cd_vendedor, nm_vendedor, ds_endereco)
+VALUES               (2,            46,         'HH'       );
+
+INSERT INTO vendedor (cd_vendedor, nm_vendedor, ds_endereco)
+VALUES               (3,            8,          'WW'       );
+
+INSERT INTO vendedor (cd_vendedor, nm_vendedor, ds_endereco)
+VALUES               (4,            32,         'YY'       );
+
+INSERT INTO vendedor (cd_vendedor, nm_vendedor, ds_endereco)
+VALUES               (5,            2,         'XX'       );
+
+
+
+SELECT * FROM cliente;
+
+CREATE TABLE cliente (
+cd_cliente    NUMBER  (20),
+nm_cliente    NUMBER (30),
+ds_endereco   VARCHAR (30),
+vl_fatura     NUMBER  (20),
+vl_limite     NUMBER  (20)
+
+);
+
+
+INSERT INTO cliente (cd_cliente, nm_cliente, ds_endereco, vl_fatura, vl_limite )
+VALUES              (11,        '22',       'XX',        43,     230);
+
+INSERT INTO cliente (cd_cliente, nm_cliente, ds_endereco, vl_fatura, vl_limite )
+VALUES              (70,        '44',       'YY',        122,     830);
+
+INSERT INTO cliente (cd_cliente, nm_cliente, ds_endereco, vl_fatura, vl_limite )
+VALUES              (25,        '88',       'HH',         20,     1500      );
+
+INSERT INTO cliente (cd_cliente, nm_cliente, ds_endereco, vl_fatura, vl_limite )
+VALUES              (32,        '19',       'MM',         804,    2000      );
+
+INSERT INTO cliente (cd_cliente, nm_cliente, ds_endereco, vl_fatura, vl_limite )
+VALUES              (52,        '97',       'SS',         500,    780       );
